@@ -18,10 +18,16 @@ function getComputerMove() {
   return options[randomOption];
 }
 
-const playerMove = prompt("Make your move - rock, paper or scissors:");
-const computerMove = getComputerMove();
-const result = compare(playerMove, computerMove);
+let playAgain = true;
 
-alert(
-  `You chose: ${playerMove}, Computer chose: ${computerMove} Result: ${result}`
-);
+while (playAgain === true) {
+  const playerMove = prompt("Make your move - rock, paper or scissors:");
+  const computerMove = getComputerMove();
+  const result = compare(playerMove, computerMove);
+  alert(
+    `You chose: ${playerMove}, Computer chose: ${computerMove} Result: ${result}`
+  );
+  playAgain = confirm("Would you like to play again?");
+}
+
+alert(`Game over!`);
