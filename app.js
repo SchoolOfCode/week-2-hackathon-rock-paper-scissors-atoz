@@ -18,14 +18,53 @@ function getComputerMove() {
   return options[randomOption];
 }
 
+let playerName;
+
+let isNameCorrect = false;
+  while (isNameCorrect === false) {
+     playerName = prompt("What is your name");
+    
+    if (playerName.length <= 10) {
+      isNameCorrect = true;
+    } else {
+      alert("Name is too long, must be no more than 10 characters!");
+    }
+  }
+  
+  
+  
+  let scores = {
+    gamesPlayed: 0,
+    win: 0,
+  lose: 0,
+  draw: 0
+}
+
+alert (`Hello ${playerName}, wanna play?`);
+
 let playAgain = true;
 
 while (playAgain === true) {
   const playerMove = prompt("Make your move - rock, paper or scissors:");
   const computerMove = getComputerMove();
   const result = compare(playerMove, computerMove);
-  alert(
-    `You chose: ${playerMove}, Computer chose: ${computerMove} Result: ${result}`
+ 
+scores.gamesPlayed++
+
+ if (result === 1) {
+  scores.win++;
+alert("YOU WON!");  
+} 
+
+ else if (result === -1) { scores.lose++;
+ alert("YOU LOSE!");
+ }
+ else { 
+  scores.draw++;
+  alert("IT WAS A DRAW!");
+ }
+ alert(
+    `${playerName}: ${playerMove}, Computer chose: ${computerMove} Wins: ${scores.win}, Losses: ${scores.lose}, Draws: ${scores.draw}. Games Played: ${scores.gamesPlayed}`
   );
   playAgain = confirm("Would you like to play again?");
 }
