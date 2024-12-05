@@ -23,22 +23,26 @@ let isNameCorrect = false;
 
 while (isNameCorrect === false) {
   playerName = prompt("What is your name?");
-  if (playerName.length <= 10) {
+  let firstLetter = playerName.slice(0, 1);
+  if (
+    (playerName.length <= 10) &&
+    (firstLetter.toLowerCase() != firstLetter.toUpperCase()) &&
+    (firstLetter == firstLetter.toUpperCase())
+  ) {
     isNameCorrect = true;
   } else {
-    alert("Name is too long, must be no more than 10 characters!");
+    alert("Error in name!\nName must be no more than 10 characters,\nmust start with a letter and be capitalised!");
   }
 }
   
+alert (`Hello ${playerName}, wanna play?`);
+
 let scores = {
   gamesPlayed: 0,
   win:  0,
   lose: 0,
   draw: 0,
-}
-
-alert (`Hello ${playerName}, wanna play?`);
-
+};
 let playAgain = true;
 
 while (playAgain === true) {
