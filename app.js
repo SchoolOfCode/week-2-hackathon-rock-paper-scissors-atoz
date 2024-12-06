@@ -3,8 +3,15 @@ function compare(playerMove, computerMove) {
     return 0;
   } else if (
     (playerMove === "rock"     && computerMove === "scissors") ||
+    (playerMove === "rock"     && computerMove === "lizard") ||
     (playerMove === "scissors" && computerMove === "paper") ||
-    (playerMove === "paper"    && computerMove === "rock")
+    (playerMove === "scissors" && computerMove === "lizard") ||
+    (playerMove === "paper"    && computerMove === "rock") ||
+    (playerMove === "paper"    && computerMove === "spock") ||
+    (playerMove === "lizard"   && computerMove === "paper") ||
+    (playerMove === "lizard"   && computerMove === "spock") ||
+    (playerMove === "spock"    && computerMove === "rock") ||
+    (playerMove === "spock"    && computerMove === "scissors")
   ) {
     return 1;
   } else {
@@ -13,7 +20,7 @@ function compare(playerMove, computerMove) {
 }
 
 function getComputerMove() {
-  const options = ["rock", "scissors", "paper"];
+  const options = ["rock", "scissors", "paper", "lizard", "spock"];
   const randomOption = Math.floor(Math.random() * options.length);
   return options[randomOption];
 }
@@ -46,7 +53,7 @@ let scores = {
 let playAgain = true;
 
 while (playAgain === true) {
-  const playerMove = prompt("Make your move - rock, paper or scissors:");
+  const playerMove = prompt("Make your move - rock, paper, scissors, lizard or spock:");
   const computerMove = getComputerMove();
   const result = compare(playerMove, computerMove);
 
