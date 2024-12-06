@@ -156,3 +156,5 @@ while (playAgain) {
 }
 
 alert(`Aww.. You are leaving?\nGood bye, ${playerName}! 👋`);
+
+The End
